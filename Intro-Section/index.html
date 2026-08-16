@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Snap</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="overlay"></div>
+
+    <header class="header">
+      <a href="#" class="logo" alt="snap's logo">
+        <img src="./assets/images/logo.svg" alt="snap's logo" />
+      </a>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <button class="nav-link">
+              Features
+              <span class="arrow">⌄</span>
+            </button>
+
+            <ul class="dropdown-list">
+              <li class="dropdown-link">
+                <a href="#" aria-label="todo-list">
+                  <img src="./assets/images/icon-todo.svg" alt="" />
+                  Todo List
+                </a>
+              </li>
+
+              <li class="dropdown-link">
+                <a href="#">
+                  <img src="./assets/images/icon-calendar.svg" alt="" />
+                  Calendar
+                </a>
+              </li>
+
+              <li class="dropdown-link">
+                <a href="#">
+                  <img src="./assets/images/icon-reminders.svg" alt="" />
+                  Reminders
+                </a>
+              </li>
+
+              <li class="dropdown-link">
+                <a href="#">
+                  <img src="./assets/images/icon-planning.svg" alt="" />
+                  Planning
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <button class="nav-link">
+              Company
+              <span class="arrow">⌄</span>
+            </button>
+
+            <ul class="dropdown-list company-dropdown">
+              <li class="dropdown-link">
+                <a href="#"> History </a>
+              </li>
+
+              <li class="dropdown-link">
+                <a href="#"> Our Team </a>
+              </li>
+
+              <li class="dropdown-link">
+                <a href="#"> Blog </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link normal-link"> Careers </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link normal-link"> About </a>
+          </li>
+        </ul>
+
+        <button class="close-menu" aria-label="Close menu">✕</button>
+      </nav>
+
+      <div class="registration">
+        <button class="login">Login</button>
+        <button class="register">Register</button>
+      </div>
+
+      <button class="open-menu" aria-label="Open menu">☰</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="main-picture">
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset="./assets/images/image-hero-desktop.png"
+            />
+
+            <img
+              src="./assets/images/image-hero-mobile.png"
+              alt="Person working remotely"
+            />
+          </picture>
+        </div>
+
+        <div class="text-content">
+          <h1>Make remote work</h1>
+          <p>
+            Get your team in sync, no matter your location. Streamline
+            processes, create team rituals, and watch productivity soar.
+          </p>
+
+          <button class="learn-more">Learn More</button>
+          <div class="clients">
+            <img src="./assets/images/client-databiz.svg" alt="Databiz" />
+            <img src="./assets/images/client-audiophile.svg" alt="Audiophile" />
+            <img src="./assets/images/client-meet.svg" alt="Meet" />
+            <img src="./assets/images/client-maker.svg" alt="Maker" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://crio.do" target="_blank"> Crio.do </a>. Coded by
+        <a href="#" target="_blank"> Ananda S Holla </a>.
+      </div>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
