@@ -35,12 +35,13 @@ function showStep(step) {
     item.classList.toggle("active", itemStep === step);
   });
 
-    if (step > 1)
-      document.getElementsByClassName("navigation")[0].style.flexDirection =
-        "row-reverse";
-    else
+    if (step > 1) {
       document.getElementsByClassName("navigation")[0].style.flexDirection =
         "row";
+    } else {
+      document.getElementsByClassName("navigation")[0].style.flexDirection =
+        "row-reverse";
+    }
 
   if (step === 4) {
     updateSummary();
