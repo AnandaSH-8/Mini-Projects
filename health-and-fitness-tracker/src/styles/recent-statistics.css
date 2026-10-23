@@ -1,0 +1,125 @@
+
+.recent-section {
+    min-width: 0;
+  }
+  
+  .recent-title {
+    margin: 0 0 18px;
+    color: #f5f5f5;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 700;
+  }
+  
+  .records-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .health-record-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 7px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+  }
+  
+  .record-content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  
+  .record-content h3 {
+    margin: 0 0 12px;
+    color: #222;
+    font-size: 16px;
+  }
+  
+  .record-content p {
+    margin: 7px 0;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  
+  .record-description {
+    color: #555;
+  }
+  
+  .record-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 7px;
+  }
+  
+  .record-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    transition: opacity 0.2s ease;
+  }
+  
+  .record-action:hover {
+    opacity: 0.8;
+  }
+  
+  .edit-action {
+    background-color: #087df0;
+  }
+  
+  .delete-action {
+    background-color: #e53935;
+  }
+  
+  .empty-records {
+    padding: 28px 16px;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #666;
+    text-align: center;
+  }
+  
+  .empty-records p {
+    margin: 0 0 8px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .empty-records span {
+    font-size: 13px;
+  }
+  
+  @media (max-width: 480px) {
+    .health-record-card {
+      gap: 8px;
+      padding: 12px;
+    }
+  
+    .record-content h3 {
+      font-size: 14px;
+    }
+  
+    .record-content p {
+      font-size: 12px;
+    }
+  
+    .record-actions {
+      gap: 5px;
+    }
+  
+    .record-action {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  

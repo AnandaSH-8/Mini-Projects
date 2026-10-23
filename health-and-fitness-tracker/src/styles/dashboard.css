@@ -1,0 +1,174 @@
+.app-container {
+  min-height: 100vh;
+  padding: 18px;
+  background-color: #383838;
+}
+
+.app-title {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.dashboard-top {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+  /* align-items: center; */
+  gap: 28px;
+  padding: 28px 3%;
+  min-height: 330px;
+  background-color: #606060;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+}
+
+.add-data-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  padding: 24px;
+  background-color: #a0a0a0;
+  border-radius: 12px;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 25%);
+  text-align: center;
+}
+
+.add-data-panel h2 {
+  margin: 0 0 16px;
+  font-size: 21px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.add-data-button {
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #43ad50;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.add-data-button:hover {
+  background-color: #369342;
+}
+
+.weekly-section,
+.recent-section,
+.overall-section {
+  min-width: 0;
+}
+
+.weekly-section h2,
+.recent-section h2,
+.overall-section h2 {
+  margin: 0 0 16px;
+  font-size: 19px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.chart-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 210px;
+  padding: 16px;
+  border: 1px dashed #999;
+  color: #ddd;
+  text-align: center;
+}
+
+.dashboard-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+  align-items: start;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.recent-section h2 {
+  text-align: left;
+  font-style: italic;
+}
+
+.records-placeholder {
+  min-height: 190px;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #666;
+}
+
+.overall-section h2 {
+  font-style: italic;
+}
+
+.pie-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  margin: 30px auto;
+  border: 1px dashed #999;
+  border-radius: 50%;
+  color: #ddd;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 14px;
+  }
+
+  .app-title {
+    text-align: center;
+    font-size: 23px;
+  }
+
+  .dashboard-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 20px;
+  }
+
+  .add-data-panel {
+    min-height: 180px;
+  }
+
+  .dashboard-bottom {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .recent-section h2,
+  .overall-section h2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-container {
+    padding: 10px;
+  }
+
+  .dashboard-top {
+    padding: 14px;
+  }
+
+  .add-data-panel {
+    padding: 18px 12px;
+  }
+
+  .weekly-section h2,
+  .recent-section h2,
+  .overall-section h2 {
+    font-size: 17px;
+  }
+}
