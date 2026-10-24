@@ -1,0 +1,156 @@
+.announcement-bar {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 12px;
+  background: var(--primary-blue);
+  color: white;
+  font-size: 10px;
+  text-align: center;
+}
+
+.site-header {
+  background: white;
+}
+
+.navbar {
+  width: min(1120px, calc(100% - 40px));
+  min-height: 76px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #222;
+  line-height: 1.1;
+}
+
+.brand svg {
+  margin-bottom: 2px;
+}
+
+.brand span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.brand small {
+  margin-top: 2px;
+  font-size: 9px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(10px, 1.7vw, 24px);
+  color: var(--dark-blue);
+  font-size: 11px;
+}
+
+.nav-links a {
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary-blue);
+}
+
+.nav-links .nav-bookings {
+  padding: 9px 13px;
+  border-radius: 4px;
+  background: var(--primary-blue);
+  color: white;
+}
+
+.site-footer {
+  padding: 30px max(24px, calc((100% - 1120px) / 2)) 16px;
+  background: var(--primary-blue);
+  color: white;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+  gap: 40px;
+}
+
+.footer-brand {
+  justify-self: start;
+  color: white;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 24px;
+  font-size: 11px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  margin: 28px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    width: calc(100% - 28px);
+    min-height: 70px;
+    flex-wrap: wrap;
+    padding: 12px 0;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    justify-content: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 12px;
+    padding-bottom: 6px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-brand {
+    justify-self: center;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}

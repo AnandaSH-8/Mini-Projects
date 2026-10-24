@@ -1,0 +1,240 @@
+.search-page {
+  min-height: 500px;
+  background: #f0f5ff;
+}
+
+.search-page-banner {
+  padding: 30px 24px 26px;
+  background: linear-gradient(120deg, #eaf2ff 0%, #eaf2ff 55%, #dceaff 100%);
+  border-bottom: 4px solid var(--primary-blue);
+}
+
+.search-page-banner h1 {
+  margin: 0 auto 18px;
+  max-width: 1000px;
+  color: var(--dark-blue);
+  font-size: 24px;
+}
+
+.results-search-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  width: min(960px, 100%);
+  margin: auto;
+  padding: 14px;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 3px 12px rgb(35 74 131 / 7%);
+}
+
+.results-search-form input {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid #e6edf7;
+  border-radius: 4px;
+  outline-color: var(--primary-blue);
+}
+
+.results-search-container {
+  width: min(960px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.search-results-container {
+  width: min(960px, calc(100% - 40px));
+  min-height: 240px;
+  margin: 0 auto;
+  padding: 28px 0 45px;
+}
+
+.results-count {
+  margin: 0 0 8px;
+  color: #203e68;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.results-message,
+.results-error {
+  margin: 14px 0;
+  line-height: 1.7;
+}
+
+.results-error {
+  color: #bd3030;
+}
+
+.restaurant-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.restaurant-card {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 15px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #eef1f6;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(35 74 131 / 4%);
+}
+
+.restaurant-card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85px;
+  border-radius: 4px;
+  background: #eaf2ff;
+  color: var(--primary-blue);
+}
+
+.restaurant-card-content {
+  min-width: 0;
+}
+
+.restaurant-card h3 {
+  margin: 0 0 7px;
+  color: var(--dark-blue);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.restaurant-card p {
+  margin: 4px 0;
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.restaurant-address,
+.restaurant-location {
+  color: var(--text-muted);
+}
+
+.restaurant-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #279b49;
+}
+
+.restaurant-fee {
+  color: #279b49;
+  font-weight: 600;
+}
+
+.restaurant-fee span {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.book-restaurant-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary-blue);
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.book-restaurant-button:hover {
+  background: #148fe6;
+}
+
+.booking-notice {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #c8e4ff;
+  border-radius: 6px;
+  background: white;
+}
+
+.secondary-button {
+  padding: 8px 14px;
+  border: 1px solid #d6e1f0;
+  border-radius: 4px;
+  background: white;
+  color: var(--dark-blue);
+}
+
+@media (max-width: 700px) {
+  .search-page-banner {
+    padding: 24px 16px;
+  }
+
+  .search-page-banner h1 {
+    font-size: 21px;
+  }
+
+  .results-search-form {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-results-container {
+    width: calc(100% - 28px);
+    padding-top: 22px;
+  }
+
+  .restaurant-results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-search-form .search-field {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .restaurant-card {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-card-image {
+    min-height: 100px;
+  }
+}
+
+.search-page-eyebrow {
+  margin: 0 0 8px;
+  color: var(--primary-blue);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.search-page-banner > p:not(.search-page-eyebrow) {
+  margin: 10px 0 20px;
+  color: var(--text-muted);
+}
+
+.results-search-form .search-field {
+  flex: 1;
+  min-width: 180px;
+}
+
+.results-search-form .search-field select {
+  width: 100%;
+}
+
+.results-search-form .primary-button {
+  flex-shrink: 0;
+}
+
+.search-results-container {
+  min-height: 250px;
+}
