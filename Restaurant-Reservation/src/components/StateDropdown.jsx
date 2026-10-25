@@ -31,6 +31,16 @@ export default function StateDropdown({
               <li
                 key={state}
                 onClick={() => {
+                  console.log("State selected:", state);
+                  console.log("onChange type:", typeof onChange);
+
+                  if (typeof onChange !== "function") {
+                    console.error(
+                      "StateDropdown requires an onChange function",
+                    );
+                    return;
+                  }
+
                   onChange(state);
                   setIsOpen(false);
                 }}

@@ -95,17 +95,17 @@ function SearchResultsPage() {
           <form className="results-search-form" onSubmit={handleSearch}>
             <StateDropdown
               states={states}
-              selectedState={selectedState}
-              onStateChange={handleStateChange}
+              value={selectedState}
+              onChange={handleStateChange}
               loading={loadingStates}
               error={statesError}
             />
 
             <CityDropdown
               cities={cities}
-              selectedCity={selectedCity}
-              onCityChange={setSelectedCity}
-              stateSelected={Boolean(selectedState)}
+              value={selectedCity}
+              onChange={setSelectedCity}
+              disabled={!selectedState}
               loading={loadingCities}
               error={citiesError}
             />
