@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sun, Moon, Menu, X } from "lucide-react";
 
-import botImage from "../assets/bot.png";
-import newChatImage from "../assets/newchat.png";
+// import botImage from "../assets/bot.png";
+// import newChatImage from "../assets/newchat.png";
 
 import "../styles/chat.css";
 
@@ -42,7 +42,7 @@ function ChatPage() {
           className="new-suggestion-link"
           onClick={handleNewSuggestion}
         >
-          <img src={newChatImage} alt="" />
+          {/* <img src={newChatImage} alt="" /> */}
           <span>Want new suggestion?</span>
           <span className="new-chat-symbol" aria-hidden="true">
             ✚
@@ -96,7 +96,7 @@ function ChatPage() {
         <section className="chat-content">
           <div className="welcome-section">
             <h2>Hi, Please tell me what you want?</h2>
-            <img src={botImage} alt="Product Recommendation AI bot" />
+            {/* <img src={botImage} alt="Product Recommendation AI bot" /> */}
           </div>
 
           <div className="quick-suggestions">
