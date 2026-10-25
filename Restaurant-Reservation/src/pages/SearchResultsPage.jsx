@@ -23,8 +23,6 @@ function SearchResultsPage() {
   const state = searchParams.get("state") || "";
   const city = searchParams.get("city") || "";
 
-  const { states, loadingStates, statesError } = useStates();
-  const { cities, loadingCities, citiesError } = useCities(state);
 
   const {
     restaurants,
@@ -39,6 +37,9 @@ function SearchResultsPage() {
   const [selectedCity, setSelectedCity] = useState(city);
   const [bookingRestaurant, setBookingRestaurant] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
+
+   const { states, loadingStates, statesError } = useStates();
+   const { cities, loadingCities, citiesError } = useCities(selectedState);
 
   useEffect(() => {
     function fetch() {
