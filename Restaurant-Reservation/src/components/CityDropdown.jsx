@@ -1,40 +1,47 @@
-function CityDropdown({
-  cities,
-  selectedCity,
-  onCityChange,
-  stateSelected,
-  loading,
-  error,
+import { useState } from "react";
+
+export default function CityDropdown({
+  cities = [],
+  value,
+  onChange,
+  disabled = false,
+  loading = false,
+  error = "",
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div id="city" className="search-field">
-      <label htmlFor="city-select">City</label>
-
-      <select
-        id="city-select"
-        value={selectedCity}
-        onChange={(event) => onCityChange(event.target.value)}
-        disabled={!stateSelected || loading}
-        required
+      <button
+        type="button"
+        className="dropdown-trigger"
+        disabled={disabled}
+        onClick={() => setIsOpen((open) => !open)}
+        aria-expanded={isOpen}
       >
-        <option value="">
-          {!stateSelected
-            ? "Select a state first"
-            : loading
-              ? "Loading cities..."
-              : "Select City"}
-        </option>
+        {value || "Select City"}
+      </button>
 
-        {cities.map((city) => (
-          <option key={city} value={city}>
-            {city}
-          </option>
-        ))}
-      </select>
+      {isOpen && !disabled && (
+        <ul className="dropdown-options">
+          {loading && <li>Loading cities...</li>}
+          {error && <li>{error}</li>}
 
-      {error && <p className="field-error">{error}</p>}
+          {!loading &&
+            !error &&
+            cities.map((city) => (
+              <li
+                key={city}
+                onClick={() => {
+                  onChange(city);
+                  setIsOpen(false);
+                }}
+              >
+                {city}
+              </li>
+            ))}
+        </ul>
+      )}
     </div>
   );
 }
-
-export default CityDropdown;

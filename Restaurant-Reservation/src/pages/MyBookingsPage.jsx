@@ -13,25 +13,33 @@ function MyBookingsPage() {
 
     if (!query) return bookings;
 
-    return bookings.filter((booking) =>
-      [
+    return bookings.filter((booking) => {
+      const date = booking.date ?? booking.bookingDate;
+      const time = booking.time ?? booking.bookingTime;
+
+      return [
         booking.restaurantName,
         booking.city,
         booking.state,
         booking.address,
-        booking.date,
-        booking.time,
+        date,
+        time,
         booking.status,
+        booking.bookingEmail,
       ]
         .filter(Boolean)
-        .some((value) => String(value).toLowerCase().includes(query)),
-    );
+        .some((value) => String(value).toLowerCase().includes(query));
+    });
   }, [bookings, searchTerm]);
 
-  function formatDate(dateString) {
-    if (!dateString) return "Date not available";
+  function formatDate(dateValue) {
+    if (!dateValue) return "Date not available";
 
-    const date = new Date(`${dateString}T00:00:00`);
+    const date = new Date(dateValue);
+
+    if (Number.isNaN(date.getTime())) {
+      return "Date not available";
+    }
 
     return date.toLocaleDateString("en-US", {
       weekday: "short",
@@ -85,51 +93,59 @@ function MyBookingsPage() {
 
         {filteredBookings.length > 0 ? (
           <div className="booking-list">
-            {filteredBookings.map((booking) => (
-              <article className="saved-booking-card" key={booking.id}>
-                <div className="saved-booking-icon">
-                  <CalendarDays size={25} />
-                </div>
+            {filteredBookings.map((booking, index) => {
+              const date = booking.date ?? booking.bookingDate;
+              const time = booking.time ?? booking.bookingTime;
 
-                <div className="saved-booking-details">
-                  <h3>{booking.restaurantName}</h3>
-
-                  <p className="saved-booking-location">
-                    <MapPin size={14} />
-                    {[booking.address, booking.city, booking.state]
-                      .filter(Boolean)
-                      .join(", ")}
-                  </p>
-
-                  <div className="saved-booking-meta">
-                    <p>
-                      <CalendarDays size={14} />
-                      {formatDate(booking.date)}
-                    </p>
-                    <p>
-                      <Clock size={14} />
-                      {booking.time || "Time not available"}
-                    </p>
+              return (
+                <article
+                  className="saved-booking-card"
+                  key={booking.id ?? `${booking.restaurantName}-${index}`}
+                >
+                  <div className="saved-booking-icon">
+                    <CalendarDays size={25} />
                   </div>
-                </div>
 
-                <div className="saved-booking-actions">
-                  <span className="booking-status">
-                    {booking.status || "Confirmed"}
-                  </span>
+                  <div className="saved-booking-details">
+                    <h3>{booking.restaurantName}</h3>
 
-                  <button
-                    type="button"
-                    className="cancel-booking-button"
-                    onClick={() => handleCancel(booking)}
-                    aria-label={`Cancel booking at ${booking.restaurantName}`}
-                  >
-                    <Trash2 size={15} />
-                    Cancel
-                  </button>
-                </div>
-              </article>
-            ))}
+                    <p className="saved-booking-location">
+                      <MapPin size={14} />
+                      {[booking.address, booking.city, booking.state]
+                        .filter(Boolean)
+                        .join(", ")}
+                    </p>
+
+                    <div className="saved-booking-meta">
+                      <p>
+                        <CalendarDays size={14} />
+                        {formatDate(date)}
+                      </p>
+                      <p>
+                        <Clock size={14} />
+                        {time || "Time not available"}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="saved-booking-actions">
+                    <span className="booking-status">
+                      {booking.status || "Confirmed"}
+                    </span>
+
+                    <button
+                      type="button"
+                      className="cancel-booking-button"
+                      onClick={() => handleCancel(booking)}
+                      aria-label={`Cancel booking at ${booking.restaurantName}`}
+                    >
+                      <Trash2 size={15} />
+                      Cancel
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         ) : (
           <div className="bookings-empty-state">

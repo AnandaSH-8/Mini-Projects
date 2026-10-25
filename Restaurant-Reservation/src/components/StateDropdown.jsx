@@ -1,35 +1,45 @@
-function StateDropdown({
-  states,
-  selectedState,
-  onStateChange,
-  loading,
-  error,
+import { useState } from "react";
+
+export default function StateDropdown({
+  states = [],
+  value,
+  onChange,
+  loading = false,
+  error = "",
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div id="state" className="search-field">
-      <label htmlFor="state-select">State</label>
-
-      <select
-        id="state-select"
-        value={selectedState}
-        onChange={(event) => onStateChange(event.target.value)}
-        disabled={loading}
-        required
+      <button
+        type="button"
+        className="dropdown-trigger"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-expanded={isOpen}
       >
-        <option value="">
-          {loading ? "Loading states..." : "Select State"}
-        </option>
+        {value || "Select State"}
+      </button>
 
-        {states.map((state) => (
-          <option key={state} value={state}>
-            {state}
-          </option>
-        ))}
-      </select>
+      {isOpen && (
+        <ul className="dropdown-options">
+          {loading && <li>Loading states...</li>}
+          {error && <li>{error}</li>}
 
-      {error && <p className="field-error">{error}</p>}
+          {!loading &&
+            !error &&
+            states.map((state) => (
+              <li
+                key={state}
+                onClick={() => {
+                  onChange(state);
+                  setIsOpen(false);
+                }}
+              >
+                {state}
+              </li>
+            ))}
+        </ul>
+      )}
     </div>
   );
 }
-
-export default StateDropdown;
