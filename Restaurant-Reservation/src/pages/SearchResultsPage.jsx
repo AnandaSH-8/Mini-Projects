@@ -20,9 +20,15 @@ function SearchResultsPage() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const state = searchParams.get("state") || "";
-  const city = searchParams.get("city") || "";
+  const urlState = searchParams.get("state") || "";
+  const urlCity = searchParams.get("city") || "";
 
+  const [selectedState, setSelectedState] = useState(urlState);
+  const [selectedCity, setSelectedCity] = useState(urlCity);
+
+  const { states, loadingStates, statesError } = useStates();
+
+  const { cities, loadingCities, citiesError } = useCities(selectedState);
 
   const {
     restaurants,
@@ -33,39 +39,17 @@ function SearchResultsPage() {
 
   const { addBooking } = useBookings();
 
-  const [selectedState, setSelectedState] = useState(state);
-  const [selectedCity, setSelectedCity] = useState(city);
   const [bookingRestaurant, setBookingRestaurant] = useState(null);
-  const [hasSearched, setHasSearched] = useState(false);
 
-   const { states, loadingStates, statesError } = useStates();
-   const { cities, loadingCities, citiesError } = useCities(selectedState);
-
-  useEffect(() => {
-    function fetch() {
-      setSelectedState(state);
-      setSelectedCity(city);
-    }
-    fetch();
-  }, [state, city]);
-
-  useEffect(() => {
-    async function loadRestaurants() {
-      if (!state || !city) {
-        setHasSearched(false);
-        return;
-      }
-
-      setHasSearched(true);
-      await searchRestaurants(state, city);
-    }
-
-    loadRestaurants();
-  }, [state, city, searchRestaurants]);
+  const hasSearched = Boolean(urlState && urlCity);
 
   function handleStateChange(nextState) {
     setSelectedState(nextState);
     setSelectedCity("");
+  }
+
+  function handleCityChange(nextCity) {
+    setSelectedCity(nextCity);
   }
 
   function handleSearch(event) {
@@ -73,11 +57,22 @@ function SearchResultsPage() {
 
     if (!selectedState || !selectedCity) return;
 
+    if (selectedState === urlState && selectedCity === urlCity) {
+      searchRestaurants(selectedState, selectedCity);
+      return;
+    }
+
     setSearchParams({
       state: selectedState,
       city: selectedCity,
     });
   }
+
+  useEffect(() => {
+    if (!urlState || !urlCity) return;
+
+    searchRestaurants(urlState, urlCity);
+  }, [urlState, urlCity, searchRestaurants]);
 
   function handleConfirmBooking(bookingData) {
     addBooking(bookingData);
@@ -90,6 +85,7 @@ function SearchResultsPage() {
       <section className="search-page">
         <div className="search-page-banner">
           <p className="search-page-eyebrow">Discover your next dining spot</p>
+
           <h1>Find Your Restaurant</h1>
           <p>Search restaurants by state and city.</p>
 
@@ -105,7 +101,7 @@ function SearchResultsPage() {
             <CityDropdown
               cities={cities}
               value={selectedCity}
-              onChange={setSelectedCity}
+              onChange={handleCityChange}
               disabled={!selectedState}
               loading={loadingCities}
               error={citiesError}
@@ -115,7 +111,7 @@ function SearchResultsPage() {
               type="submit"
               id="searchBtn"
               className="primary-button"
-              disabled={!selectedState || !selectedCity}
+              disabled={!selectedState || !selectedCity || loadingCities}
             >
               <Search size={14} />
               Search
@@ -128,7 +124,7 @@ function SearchResultsPage() {
             <h1 className="results-count">
               {loadingRestaurants
                 ? "Loading restaurants..."
-                : `${restaurants.length} restaurants available in ${city}`}
+                : `${restaurants.length} restaurants available in ${urlCity}`}
             </h1>
           )}
 
@@ -155,7 +151,7 @@ function SearchResultsPage() {
             hasSearched &&
             restaurants.length === 0 && (
               <p className="results-message">
-                No restaurants found in {city}. Try another location.
+                No restaurants found in {urlCity}. Try another location.
               </p>
             )}
 

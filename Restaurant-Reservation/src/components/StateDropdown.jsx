@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function StateDropdown({
   states = [],
-  value,
+  value = "",
   onChange,
   loading = false,
   error = "",
@@ -14,8 +14,8 @@ export default function StateDropdown({
       <button
         type="button"
         className="dropdown-trigger"
-        onClick={() => setIsOpen((open) => !open)}
         aria-expanded={isOpen}
+        onClick={() => setIsOpen((open) => !open)}
       >
         {value || "Select State"}
       </button>
@@ -23,7 +23,8 @@ export default function StateDropdown({
       {isOpen && (
         <ul className="dropdown-options">
           {loading && <li>Loading states...</li>}
-          {error && <li>{error}</li>}
+
+          {!loading && error && <li>{error}</li>}
 
           {!loading &&
             !error &&
@@ -31,16 +32,6 @@ export default function StateDropdown({
               <li
                 key={state}
                 onClick={() => {
-                  console.log("State selected:", state);
-                  console.log("onChange type:", typeof onChange);
-
-                  if (typeof onChange !== "function") {
-                    console.error(
-                      "StateDropdown requires an onChange function",
-                    );
-                    return;
-                  }
-
                   onChange(state);
                   setIsOpen(false);
                 }}
@@ -48,6 +39,10 @@ export default function StateDropdown({
                 {state}
               </li>
             ))}
+
+          {!loading && !error && states.length === 0 && (
+            <li>No states available</li>
+          )}
         </ul>
       )}
     </div>

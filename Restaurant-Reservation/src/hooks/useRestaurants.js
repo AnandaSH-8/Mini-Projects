@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { fetchRestaurants } from "../services/restaurantApi";
 
 export default function useRestaurants() {
@@ -15,12 +15,13 @@ export default function useRestaurants() {
       const data = await fetchRestaurants(state, city);
 
       if (!Array.isArray(data)) {
-        throw new Error("Unexpected restaurant response.");
+        throw new Error("Expected an array of restaurants.");
       }
 
       setRestaurants(data);
-    } catch {
+    } catch (error) {
       setRestaurantsError("Unable to load restaurants. Please try again.");
+      console.error("Failed to fetch restaurants:", error);
     } finally {
       setLoadingRestaurants(false);
     }

@@ -1,7 +1,20 @@
+
 import { useEffect, useState } from "react";
 import { fetchCities } from "../services/restaurantApi";
 
-export default function useCities(selectedState) {
+function normalizeCities(data) {
+  if (!Array.isArray(data)) return [];
+
+  return data
+    .map((item) => {
+      if (typeof item === "string") return item;
+
+      return item?.city ?? item?.name ?? item?.cityName ?? "";
+    })
+    .filter(Boolean);
+}
+
+export default function useCities(state) {
   const [cities, setCities] = useState([]);
   const [loadingCities, setLoadingCities] = useState(false);
   const [citiesError, setCitiesError] = useState("");
@@ -9,40 +22,42 @@ export default function useCities(selectedState) {
   useEffect(() => {
     let active = true;
 
-    async function loadCities() {
-      try {
+    function initialize() {
+      if (!state) {
         setCities([]);
+        setLoadingCities(false);
         setCitiesError("");
-
-        if (!selectedState) {
-          setLoadingCities(false);
-          return;
-        }
-
-        setLoadingCities(true);
-
-        const data = await fetchCities(selectedState);
-
-        if (active) {
-          setCities(Array.isArray(data) ? data : []);
-        }
-      } catch {
-        if (active) {
-          setCitiesError("Unable to load cities. Please try again.");
-        }
-      } finally {
-        if (active) {
-          setLoadingCities(false);
-        }
+        return undefined;
       }
     }
 
+    async function loadCities() {
+      setLoadingCities(true);
+      setCities([]);
+      setCitiesError("");
+
+      try {
+        const data = await fetchCities(state);
+        const names = normalizeCities(data);
+
+        if (active) setCities(names);
+      } catch (error) {
+        if (active) {
+          setCitiesError("Unable to load cities. Please try again.");
+          console.error(`Failed to fetch cities for ${state}:`, error);
+        }
+      } finally {
+        if (active) setLoadingCities(false);
+      }
+    }
+
+    initialize()
     loadCities();
 
     return () => {
       active = false;
     };
-  }, [selectedState]);
+  }, [state]);
 
   return { cities, loadingCities, citiesError };
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function CityDropdown({
   cities = [],
-  value,
+  value = "",
   onChange,
   disabled = false,
   loading = false,
@@ -10,22 +10,25 @@ export default function CityDropdown({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const showOptions = isOpen && !disabled;
+
   return (
     <div id="city" className="search-field">
       <button
         type="button"
         className="dropdown-trigger"
         disabled={disabled}
-        onClick={() => setIsOpen((open) => !open)}
         aria-expanded={isOpen}
+        onClick={() => setIsOpen((open) => !open)}
       >
         {value || "Select City"}
       </button>
 
-      {isOpen && !disabled && (
+      {showOptions && (
         <ul className="dropdown-options">
           {loading && <li>Loading cities...</li>}
-          {error && <li>{error}</li>}
+
+          {!loading && error && <li>{error}</li>}
 
           {!loading &&
             !error &&
@@ -33,16 +36,6 @@ export default function CityDropdown({
               <li
                 key={city}
                 onClick={() => {
-                  console.log("State selected:", city);
-                  console.log("onChange type:", typeof onChange);
-
-                  if (typeof onChange !== "function") {
-                    console.error(
-                      "StateDropdown requires an onChange function",
-                    );
-                    return;
-                  }
-
                   onChange(city);
                   setIsOpen(false);
                 }}
@@ -50,6 +43,10 @@ export default function CityDropdown({
                 {city}
               </li>
             ))}
+
+          {!loading && !error && cities.length === 0 && (
+            <li>No cities available</li>
+          )}
         </ul>
       )}
     </div>
