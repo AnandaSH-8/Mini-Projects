@@ -181,6 +181,16 @@ function ChatPage() {
     setFeedbackMessageId(null);
   }
 
+function handleSave(event) {
+  event.preventDefault();
+
+  if (messages.length === 0) {
+    return;
+  }
+
+  persistConversation(messages);
+}
+
   function submitConversationFeedback() {
     persistConversation(messages, {
       overallRating,
@@ -405,12 +415,7 @@ function ChatPage() {
               Ask
             </button>
 
-            <button
-              type="submit"
-              name="action"
-              value="save"
-              className="save-button"
-            >
+            <button type="button" className="save-button" onClick={handleSave}>
               Save
             </button>
           </form>

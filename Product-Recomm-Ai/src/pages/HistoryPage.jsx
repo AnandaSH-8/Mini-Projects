@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Star, MessageSquare } from "lucide-react";
 
@@ -37,11 +37,26 @@ function HistoryPage() {
   const filteredConversations = conversations.filter((conversation) => {
     if (ratingFilter === "all") return true;
 
-    return (
-      String(conversation.overallRating ?? conversation.rating ?? "") ===
-      ratingFilter
-    );
+    const rating = conversation.overallRating ?? conversation.rating;
+
+    return String(rating ?? "") === ratingFilter;
   });
+
+  useEffect(() => {
+    function syncHistory() {
+      setConversations(readConversations());
+    }
+
+    syncHistory();
+
+    window.addEventListener("focus", syncHistory);
+    window.addEventListener("storage", syncHistory);
+
+    return () => {
+      window.removeEventListener("focus", syncHistory);
+      window.removeEventListener("storage", syncHistory);
+    };
+  }, []);
 
   return (
     <div className={`app-shell theme-${theme}`}>
