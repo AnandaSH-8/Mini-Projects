@@ -1,0 +1,134 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 26px 24px;
+}
+
+.alphabet-card {
+  width: 100%;
+  max-width: 1000px;
+  padding: 28px 24px 24px;
+  background: #fff;
+  border: 1px solid #e9edf3;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-header h1 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.card-header p {
+  margin: 0;
+  color: #718096;
+  font-size: 14px;
+}
+
+.output {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.placeholder {
+  color: #64748b;
+}
+
+.backspace-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0 16px;
+}
+
+.backspace-button {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #fff;
+  color: #374151;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.backspace-button:hover {
+  background: #f3f4f6;
+}
+
+.alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.key {
+  min-width: 0;
+  height: 60px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
+}
+
+.key:hover {
+  background: #f8fafc;
+  border-color: #9ca3af;
+}
+
+.key:focus-visible,
+.backspace-button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .app-container {
+    padding: 20px 12px;
+  }
+
+  .alphabet-card {
+    padding: 22px 14px;
+  }
+
+  .card-header h1 {
+    font-size: 24px;
+  }
+
+  .alphabet-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .key {
+    height: 48px;
+  }
+}
+
+@media (max-width: 360px) {
+  .alphabet-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
