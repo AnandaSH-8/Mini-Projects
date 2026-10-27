@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/studentEntry.css";
 
 export function StudentEntry() {
   const [name, setName] = useState("");
