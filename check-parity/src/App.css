@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f6fa;
+  color: #111827;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.checker-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 28px 24px;
+  background-color: #fff;
+  border-radius: 9px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.checker-card h1 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.checker-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checker-card input {
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.checker-card input:focus {
+  border-color: #2563eb;
+}
+
+.checker-card button {
+  width: 100%;
+  height: 36px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2864e8;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.checker-card button:hover {
+  background-color: #1d4ed8;
+}
+
+.result {
+  margin: 14px 0 0;
+  color: #0000ff;
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 400px) {
+  .checker-card {
+    padding: 24px 18px;
+  }
+}
