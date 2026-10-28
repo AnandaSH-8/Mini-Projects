@@ -1,0 +1,27 @@
+.mainContainer {
+  text-align: center;
+  margin: 8vh 5% auto;
+  border: 1px solid #ccc;
+}
+
+.mainContainer h1 {
+  color: orange;
+}
+
+.linksContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-content: center;
+  align-content: center;
+  margin: 50px auto;
+  width: 70%;
+}
+
+.linksContainer a {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 10px;
+  border: 1px solid rgb(121, 121, 121);
+}

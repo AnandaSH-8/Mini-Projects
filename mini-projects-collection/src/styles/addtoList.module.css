@@ -1,0 +1,132 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: #f5f6fa;
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 20px 16px 18px;
+  background: #ffffff;
+  border: 1px solid #edf0f5;
+  border-radius: 11px;
+  box-shadow: 0 7px 22px rgba(15, 23, 42, 0.07);
+}
+
+.heading {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  outline: none;
+  background: #ffffff;
+  color: #111827;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.input::placeholder {
+  color: #6b7280;
+}
+
+.input:focus {
+  border-color: #7da4ff;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.addButton {
+  height: 34px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 7px;
+  background: #6895f5;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background: #4779eb;
+}
+
+.emptyMessage {
+  margin: 13px 0 0;
+  text-align: center;
+  color: #718096;
+  font-size: 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 7px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 6px;
+  border: 1px solid #e9edf3;
+  border-radius: 7px;
+}
+
+.itemText {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.removeButton {
+  flex-shrink: 0;
+  min-height: 30px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  background: #fecaca;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 18px 12px;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+}
