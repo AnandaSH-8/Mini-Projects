@@ -1,0 +1,203 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background: #f5f6fa;
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 700px;
+  padding: 22px 18px 18px;
+  background: #ffffff;
+  border: 1px solid #edf0f5;
+  border-radius: 11px;
+  box-shadow: 0 7px 24px rgba(15, 23, 42, 0.07);
+}
+
+.header {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0 0 5px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.header p {
+  margin: 0;
+  color: #718096;
+  font-size: 12px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.formGroup label {
+  color: #374151;
+  font-size: 11px;
+}
+
+.formGroup input {
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #111827;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.formGroup input::placeholder {
+  color: #858b96;
+}
+
+.formGroup input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.actions {
+  display: flex;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.addButton,
+.clearButton {
+  min-height: 32px;
+  padding: 0 11px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.addButton {
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.addButton:hover {
+  background: #1d4ed8;
+}
+
+.clearButton {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #111827;
+}
+
+.clearButton:hover {
+  background: #f3f4f6;
+}
+
+.tableContainer {
+  margin-top: 9px;
+  overflow: hidden;
+  border: 1px solid #e9edf3;
+  border-radius: 8px;
+}
+
+.emptyMessage {
+  margin: 0;
+  padding: 16px 10px;
+  text-align: center;
+  color: #718096;
+  font-size: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 11px;
+}
+
+.table thead {
+  background: #f8fafc;
+}
+
+.table th {
+  color: #111827;
+  font-weight: 700;
+}
+
+.table th,
+.table td {
+  padding: 9px 7px;
+  border-bottom: 1px solid #edf0f4;
+  overflow-wrap: anywhere;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.removeButton {
+  min-height: 29px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  background: #fecaca;
+}
+
+@media (max-width: 520px) {
+  .page {
+    align-items: flex-start;
+    padding: 24px 12px;
+  }
+
+  .card {
+    padding: 20px 12px 14px;
+  }
+
+  .header h1 {
+    font-size: 21px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+  }
+
+  .table {
+    min-width: 390px;
+  }
+}

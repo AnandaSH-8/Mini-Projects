@@ -13,7 +13,7 @@ export default function MainApp() {
 
         <Link to="/squarecircle">Square & Circle</Link>
 
-        <Link to="/checkparity">Check Parity</Link>
+        <Link to="/tableData">Table Data</Link>
       </div>
     </div>
   );
