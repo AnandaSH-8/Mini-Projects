@@ -11,7 +11,7 @@ export default function MainApp() {
 
         <Link to="/addtolist">Add Items to List</Link>
 
-        <Link to="/checkparity">Check Parity</Link>
+        <Link to="/squarecircle">Square & Circle</Link>
 
         <Link to="/checkparity">Check Parity</Link>
       </div>
