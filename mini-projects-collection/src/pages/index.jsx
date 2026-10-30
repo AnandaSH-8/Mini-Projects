@@ -14,6 +14,8 @@ export default function MainApp() {
         <Link to="/squarecircle">Square & Circle</Link>
 
         <Link to="/tableData">Table Data</Link>
+
+        <Link to="/tictactoe">Tic Tac Toe</Link>
       </div>
     </div>
   );

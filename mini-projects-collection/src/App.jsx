@@ -5,6 +5,7 @@ import CheckParity from "./pages/CheckParity";
 import AddItemsToList from "./pages/AddToList";
 import SquareCircle from "./pages/squareCircle";
 import TableData from "./pages/TableData";
+import TicTacToe from "./pages/TicTacToe";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/addtolist" element={<AddItemsToList />} />
         <Route path="/squarecircle" element={<SquareCircle />} />
         <Route path="/tableData" element={<TableData />} />
+        <Route path="/tictactoe" element={<TicTacToe />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
