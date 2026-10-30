@@ -18,6 +18,8 @@ export default function MainApp() {
         <Link to="/tictactoe">Tic Tac Toe</Link>
 
         <Link to="/sudokuvalidator">Sudoku Validator</Link>
+
+        <Link to="/snakeandladders">Snake and Ladders</Link>
       </div>
     </div>
   );

@@ -1,0 +1,275 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  background: #f5f6fa;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
+}
+
+.gameCard {
+  width: 100%;
+  max-width: 850px;
+  padding: 24px 22px;
+  background: #ffffff;
+  border: 1px solid #e9edf3;
+  border-radius: 13px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.heading {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 24px;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.turn {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  font-weight: 600;
+}
+
+.p1Badge,
+.p2Badge {
+  padding: 4px 9px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.p1Badge {
+  background: #ef4444;
+}
+
+.p2Badge {
+  background: #0ea5e9;
+}
+
+.loserMessage {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #475569;
+  font-size: 11px;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.p1Dot,
+.p2Dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.p1Dot {
+  background: #ef4444;
+}
+
+.p2Dot {
+  background: #0ea5e9;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 4px;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  aspect-ratio: 1;
+  padding: 5px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #f8fafc;
+}
+
+.cellNumber {
+  color: #334155;
+  font-size: clamp(8px, 1.1vw, 12px);
+  font-weight: 600;
+}
+
+.ladderLabel,
+.snakeLabel {
+  align-self: flex-end;
+  margin-top: 2px;
+  padding: 2px 4px;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: clamp(6px, 0.8vw, 9px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ladderLabel {
+  border: 1px solid #86efac;
+  color: #16a34a;
+}
+
+.snakeLabel {
+  border: 1px solid #fca5a5;
+  color: #ef4444;
+}
+
+.playerTokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: auto;
+}
+
+.p1Token,
+.p2Token {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.p1Token {
+  background: #ef4444;
+}
+
+.p2Token {
+  background: #0ea5e9;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.rollButton,
+.resetButton {
+  min-height: 38px;
+  padding: 0 15px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rollButton {
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.rollButton:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.rollButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.resetButton {
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #111827;
+}
+
+.resetButton:hover {
+  background: #f1f5f9;
+}
+
+.rules {
+  margin: 17px 0 0;
+  color: #718096;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .page {
+    align-items: flex-start;
+    padding: 14px 8px;
+  }
+
+  .gameCard {
+    padding: 17px 10px;
+  }
+
+  .heading {
+    font-size: 23px;
+    margin-bottom: 16px;
+  }
+
+  .board {
+    gap: 2px;
+    padding: 3px;
+  }
+
+  .cell {
+    padding: 3px 2px;
+    border-radius: 3px;
+  }
+
+  .p1Token,
+  .p2Token {
+    width: 17px;
+    height: 17px;
+    font-size: 7px;
+  }
+
+  .topBar {
+    font-size: 10px;
+  }
+
+  .legend {
+    gap: 6px;
+  }
+
+  .rules {
+    font-size: 10px;
+  }
+}
