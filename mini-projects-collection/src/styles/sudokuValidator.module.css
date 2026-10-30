@@ -1,0 +1,146 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: #f5f6fa;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
+}
+
+.card {
+  width: 100%;
+  max-width: 360px;
+  padding: 20px 18px 16px;
+  background: #ffffff;
+  border-radius: 9px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.header h1 {
+  margin: 0 0 5px;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  margin: 0;
+  font-size: 10px;
+  color: #718096;
+}
+
+/* Required board class */
+:global(.board) {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 1px;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+/* Required cell class */
+:global(.cell) {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 1px solid #ffffff;
+  border-radius: 0;
+  outline: none;
+  background: #3d3d3d;
+  color: #ffffff;
+  text-align: center;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  caret-color: #ffffff;
+}
+
+:global(.cell:focus) {
+  background: #505050;
+  outline: 1px solid #2563eb;
+  outline-offset: -2px;
+}
+
+:global(.cell.invalid) {
+  background: #fecaca;
+  color: #991b1b;
+  border-color: #ffffff;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.validateButton,
+.clearButton {
+  min-height: 30px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.validateButton {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.validateButton:hover {
+  background: #1d4ed8;
+}
+
+.clearButton {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.clearButton:hover {
+  background: #dc2626;
+}
+
+.message {
+  margin: 11px 0 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.successMessage {
+  color: #15803d;
+}
+
+.errorMessage {
+  color: #dc2626;
+}
+
+@media (max-width: 380px) {
+  .card {
+    padding: 18px 12px 14px;
+  }
+
+  .header h1 {
+    font-size: 21px;
+  }
+
+  :global(.cell) {
+    font-size: 11px;
+  }
+}

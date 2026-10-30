@@ -6,6 +6,7 @@ import AddItemsToList from "./pages/AddToList";
 import SquareCircle from "./pages/squareCircle";
 import TableData from "./pages/TableData";
 import TicTacToe from "./pages/TicTacToe";
+import SudokuValidator from "./pages/SudokuValidator";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/squarecircle" element={<SquareCircle />} />
         <Route path="/tableData" element={<TableData />} />
         <Route path="/tictactoe" element={<TicTacToe />} />
+        <Route path="/sudokuvalidator" element={<SudokuValidator />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

@@ -16,6 +16,8 @@ export default function MainApp() {
         <Link to="/tableData">Table Data</Link>
 
         <Link to="/tictactoe">Tic Tac Toe</Link>
+
+        <Link to="/sudokuvalidator">Sudoku Validator</Link>
       </div>
     </div>
   );
