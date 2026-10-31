@@ -22,6 +22,8 @@ export default function MainApp() {
         <Link to="/snakeandladders">Snake and Ladders</Link>
 
         <Link to="/dragdropdigits">Drag & Drop Digits</Link>
+
+        <Link to="/studentregistration">Student Registration</Link>
       </div>
     </div>
   );
