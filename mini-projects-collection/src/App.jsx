@@ -8,6 +8,7 @@ import TableData from "./pages/TableData";
 import TicTacToe from "./pages/TicTacToe";
 import SudokuValidator from "./pages/SudokuValidator";
 import SnakeAndLadders from "./pages/SnakeAndLadders";
+import DragDropDigits from "./pages/DragDropDigits";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/tictactoe" element={<TicTacToe />} />
         <Route path="/sudokuvalidator" element={<SudokuValidator />} />
         <Route path="/snakeandladders" element={<SnakeAndLadders />} />
+        <Route path="/dragdropdigits" element={<DragDropDigits />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

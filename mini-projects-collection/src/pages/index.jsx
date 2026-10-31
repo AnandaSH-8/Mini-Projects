@@ -20,6 +20,8 @@ export default function MainApp() {
         <Link to="/sudokuvalidator">Sudoku Validator</Link>
 
         <Link to="/snakeandladders">Snake and Ladders</Link>
+
+        <Link to="/dragdropdigits">Drag & Drop Digits</Link>
       </div>
     </div>
   );
