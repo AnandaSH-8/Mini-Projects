@@ -58,7 +58,7 @@ function DragDropDigits() {
       <section className={styles.card}>
         <header className={styles.header}>
           <h1>Drag &amp; Drop Digits</h1>
-          <p>Drag the boxes to reorder the digits 0-9.</p>
+          <p>Drag the boxes to reorder the digits 0–9.</p>
         </header>
 
         <div className={styles.grid}>
